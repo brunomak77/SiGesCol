@@ -2,3 +2,6 @@
 .DS_Store
 .idea
 sgc
+db.sqlite3
+users/migrations
+aval/migrations
