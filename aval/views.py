@@ -52,42 +52,49 @@ class UserAvalDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'ua_detail'
     template_name = 'user_aval_detail.html'
 
+@login_required()
+def UserAvalCreateView(request, *args, **kwargs):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        uac_form = AvaliationForm(request.POST, instance=request.user)
+        if uac_form.is_valid():
+            u_form.save()
+            uac_form.save()
+            messages.success(request, f'Your avaliation has been created!')
+            print('eu passo por aqui?')
+            return redirect('../../<int:pk>')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        uac_form = AvaliationForm(instance=request.user)
+        print('eu passo por aqui em algum instante??')
 
-# def UserAvalCreateView(request, *args, **kwargs):
-#     if request.method == 'POST':
-#         # u_form = UserUpdateForm(request.POST, instance=request.user)
-#         uac_form = AvaliationForm(request.POST, instance=request.user)
-#         if uac_form.is_valid():
-#             # u_form.save()
-#             uac_form.save()
-#             messages.success(request, f'Your avaliation has been created!')
-#             print('eu passo por aqui?')
-#             return redirect('../../<int:pk>')
-#     else:
-#         # u_form = UserUpdateForm(instance=request.user)
-#         uac_form = AvaliationForm(instance=request.user)
-#         print('eu passo por aqui em algum instante??')
-#
-#     context = {
-#         # 'u_form': u_form,
-#         'uac_form': uac_form,
-#     }
-#     print('Por aqui eu passo!')
-#     return render(request, 'user_aval_create.html', context)
-
-
-class UserAvalCreateView(LoginRequiredMixin, CreateView):
-    model = Avaliation
     context = {
-        'uac_detail': Avaliation.objects.all()
+        # 'u_form': u_form,
+        'uac_form': uac_form,
     }
-    slug_field = 'username'
-    slug_url_kwarg = 'username'
-    template_name = 'user_aval_create.html'
-    context_object_name = 'uac_detail'
-    fields = ['tee', 'pro', 'lid', 'fle', 'ini', 'pon', 'com',
-              'cup', 'pst', 'err', 'org', 'cpi', 'p_pos', 'p_neg']
+    print('Por aqui eu passo!')
+    return render(request, 'user_aval_create.html', context)
 
-    def form_valid(self, uac_form):
-        uac_form.instance.user = self.request.user
-        return super().form_valid(uac_form)
+
+
+
+
+
+
+
+
+# class UserAvalCreateView(LoginRequiredMixin, CreateView):
+#     model = Avaliation
+#     context = {
+#         'uac_detail': Avaliation.objects.all()
+#     }
+#     slug_field = 'username'
+#     slug_url_kwarg = 'username'
+#     template_name = 'user_aval_create.html'
+#     context_object_name = 'uac_detail'
+#     fields = ['tee', 'pro', 'lid', 'fle', 'ini', 'pon', 'com',
+#               'cup', 'pst', 'err', 'org', 'cpi', 'p_pos', 'p_neg']
+#
+#     def form_valid(self, uac_form):
+#         uac_form.instance.user = self.request.user
+#         return super().form_valid(uac_form)

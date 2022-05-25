@@ -13,5 +13,5 @@ urlpatterns = [
     path('', views.user_list, name='user-list'),
     path('user_aval/<str:username>/list/', UserAvalListView.as_view(), name='user-aval-list'),
     path('user_aval/<int:pk>/detail/', UserAvalDetailView.as_view(), name='user-aval-detail'),
-    path('user_aval/new/<str:username>/', UserAvalCreateView.as_view(), name='user-aval-create'),
+    path('user_aval/<str:username>/new/', UserAvalCreateView, name='user-aval-create'),
 ]
