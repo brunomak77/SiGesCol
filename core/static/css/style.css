@@ -1,0 +1,91 @@
+
+.indigo{
+    background: #6510F1;
+}
+
+.border-indigo{
+    border: 1px solid #6510F1;
+}
+
+table {
+    border-radius: 150px;
+}
+
+.table-indigo{
+    margin: auto;
+    width: 49%;
+    border: 2px solid #6510F1;    
+}
+
+.table-indigo th {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.table-indigo td {
+    background-color: rgba(119, 117, 251, 0.5);
+    width: 20%;
+}
+
+.indigo-text{
+    color: #6510F1;
+}
+
+.fundo{
+
+    background-color: #00A99B;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 40rem;
+}
+
+.main-title{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-indigo{
+    background: #6510F1;
+    color: #fff;
+}
+
+.btn-indigo:hover{
+    background: #5C5FCC;
+    color: #fff;
+}
+
+.side-menu-item-indigo{
+    background-color: #6510F1;
+    height: 40px;
+    width: 100px;
+    border: 1px solid #5C5FCC;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.side-menu-item-indigo a{
+    color: #fff;
+}
+
+.side-menu-item-indigo:hover{
+    background: #5C5FCC;
+    color: #fff;
+    text-decoration: none;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-img-sm {
+  height: 50px;
+  width: 50px;
+}
+
+.nota{
+    font-size: 0.9em;
+    font-weight: 500;
+}

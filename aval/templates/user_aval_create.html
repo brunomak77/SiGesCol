@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="media-body">
+        <a href="#">
+        </a>
+        <h2 class="account-heading indigo-text mt-3">{{user.first_name}} {{user.last_name}} avaliation</h2>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+
+            <div class="row text-center">
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.tee|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.pro|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.lid|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.fle|as_crispy_field }}</p>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.ini|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.pon|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.com|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.cup|as_crispy_field }}</p>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.pst|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.err|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.org|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.cpi|as_crispy_field }}</p>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.p_pos|as_crispy_field }}</p>
+                </div>
+                <div class="col-sm rounded border-indigo m-1">
+                    <p class="indigo-text">{{ form.p_neg|as_crispy_field }}</p>
+                </div>
+            </div>
+
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-indigo" type="submit">create</button>
+        </div>
+    </form>
+
+</div>
+{% endblock %}

@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <div class="media-body">
+
+        <div class="row">
+            <div class="col-sm m-1">
+                <a href="{{ url  }}">
+                    <h2 class="account-heading indigo-text mt-3">{{ua_detail.user.first_name}} {{ua_detail.user.last_name}}</h2>
+                </a>
+                <h3>{{ ua_detail.date_posted|date:'d / M / Y' }}</h3>
+            </div>
+
+            <div class="col-sm rounded indigo m-1 text-center">
+                <p class="text-white mt-3">MEDIA:</p>
+                <p class="text-white nota">{% for media in UserAvalListView.media %}
+
+                {{ media }}
+
+
+                {% endfor %}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row text-center">
+        <table class="table-striped rounded table-indigo">
+            <thead>
+                <tr>
+                    <th scope="col" class="indigo text-white">Parâmetro</th>
+                    <th scope="col" class="indigo text-white">Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Trabalho em Equipe</th>
+                    <td>{{ ua_detail.tee }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Proatividade</th>
+                    <td>{{ ua_detail.pro }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Liderança</th>
+                    <td>{{ ua_detail.lid }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Flexibilidade</th>
+                    <td>{{ ua_detail.fle }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Iniciativa</th>
+                    <td>{{ ua_detail.ini }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Pontualidade</th>
+                    <td>{{ ua_detail.pon }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <table class="table-striped rounded table-indigo">
+            <thead>
+                <tr>
+                    <th scope="col" class="indigo text-white">Parâmetro</th>
+                    <th scope="col" class="indigo text-white">Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <th scope="row">Comprometimento</th>
+                    <td>{{ ua_detail.com }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cumprimento Prazos</th>
+                    <td>{{ ua_detail.cup }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Proficiência em Softwares e Técnicas</th>
+                    <td>{{ ua_detail.pst }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Erros</th>
+                    <td>{{ ua_detail.err }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Organização</th>
+                    <td>{{ ua_detail.org }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cumprimento dos processos internos</th>
+                    <td>{{ ua_detail.cpi }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    <div class="row text-center">
+        <div class="col-sm rounded indigo m-1">
+            <p class="text-white mt-3"><strong>percepções positivas</strong></p>
+            <p class="text-white nota">{{ ua_detail.p_pos }}</p>
+        </div>
+        <div class="col-sm rounded indigo m-1">
+            <p class="text-white mt-3"><strong>percepções negativas</strong></p>
+            <p class="text-white nota">{{ ua_detail.p_neg }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

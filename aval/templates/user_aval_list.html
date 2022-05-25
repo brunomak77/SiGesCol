@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+        <h1 class="my-2">{{ user.username }}'s avaliation List</h1>
+
+     {% for user in ua_list %}
+       <h1>{{ user.user.first_name }}</h1>
+        <div class="col-md-4 my-4">
+            <article class="media rounded-lg border border-info content-section">
+                <div class="article-metadata">
+                    <a href="{% url 'user-aval-detail' user.pk %}">
+                        <p class="pt-3 pl-3">{{ user.date_posted }}</p>
+                    </a>
+                </div>
+            </article>
+        </div>
+    {% endfor %}
+                    <div class="form-group">
+                        <h4>Adicione mais uma avaliação</h4>
+                    <a class="btn btn-indigo" href="{% url 'user-aval-create' user.username %}">+</a>
+                </div>
+
+</div>
+{% endblock %}

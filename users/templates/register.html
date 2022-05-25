@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section" xmlns="http://www.w3.org/1999/html">
+    <div class="container px-5">
+        <div class="border-bottom ml-2 py-4">
+            <h1 class="indigo-text">Registre-se</h1>
+        </div>
+        <form class="mt-4" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <div class="row m-auto">
+
+                    <div class="col-6">
+                        {{ form_r.first_name|as_crispy_field }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_r.last_name|as_crispy_field }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_r.username|as_crispy_field }}
+                    </div>
+                    <div class="col-6">
+                        {{ form_r.email|as_crispy_field }}
+                    </div>
+
+                    <div class="col-12">
+                        {{ form_r.password1|as_crispy_field }}
+                    </div>
+                    <div class="col-12">
+                        {{ form_r.password2|as_crispy_field }}
+                    </div>
+
+                </div>
+
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-indigo ml-2" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top ml-2 py-4">
+            <small class="text-muted">
+                Already have an account? <a class="ml-2" href="{% url 'login' %}">Login</a>
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}

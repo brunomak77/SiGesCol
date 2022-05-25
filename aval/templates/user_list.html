@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+<h1 class="main-title">Colaboradores</h1>
+    <div class="row">
+    {% for user in users_t %}
+    <div class="col-md-6">
+        <article class="media rounded-lg border border-info content-section mb-1">
+            <img class="rounded-circle account-img m-2" src="{{ user.profile.image.url }}"/>
+            <div class="article-metadata">
+                <a href="{% url 'user-aval-list' user.username %}">
+                    <h3 data-user="nomeCompleto" class="mr-2 mt-4">{{ user.first_name }} {{ user.last_name }}</h3>
+                </a>
+                <p>{{ user.username }}</p>
+            </div>
+        </article>
+    </div>
+    {% endfor %}
+</div>
+    </div>
+{% endblock %}
